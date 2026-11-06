@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Hot Rod Breakdown Archive</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Playfair+Display:wght@900&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: single centered column listing every issue, newest first */
+:root{--bg:#f4f3ef;--card:#ffffff;--ink:#1d1d1f;--muted:#5f6168;--line:#e2e0da;--accent:#c8102e;
+  --display:"Poppins","Helvetica Neue",Arial,sans-serif;--serif:"Playfair Display",Georgia,serif;--body:"Source Sans 3","Helvetica Neue",Arial,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--body)}
+.mast{background:var(--card);text-align:center;padding:22px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
+.kicker{font:700 12px var(--display);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.kicker b{color:var(--accent)}
+h1{margin:4px 0 0;font:800 clamp(30px,6vw,44px)/1.05 var(--display);letter-spacing:-.01em}
+.rule{max-width:760px;margin:12px auto 0;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);height:6px}
+main{max-width:760px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-right,0px)) 56px max(16px,env(safe-area-inset-left,0px));display:grid;gap:14px}
+h2{margin:0;text-align:center;font:900 clamp(24px,4.5vw,32px) var(--serif);text-transform:uppercase}
+.issue{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:center;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ink);padding:14px 16px;text-decoration:none;color:var(--ink)}
+.issue:hover{border-color:var(--ink)}
+.issue:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wk{grid-row:span 2;font:800 30px/1 var(--display);color:var(--accent);min-width:2ch;text-align:center}
+.t{font:600 18px var(--display)}
+.d{font-size:14px;color:var(--muted)}
+.note{color:var(--muted);font-size:14px;text-align:center}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="kicker"><b>Hot Rod</b> · Fantasy Football Boys</div>
+  <h1>The Breakdown Archive</h1>
+  <div class="rule"></div>
+</header>
+<main>
+  <h2>2026 Season</h2>
+  <a class="issue" href="/week-8/"><span class="wk">8</span><span class="t">Week 8 Breakdown</span><span class="d">Nov 6, 2026 · Week 8 recap · Week 9 preview · Scenario Builder beta</span></a>
+  <p class="note">Weeks 1–7 were published as PDFs before the digital edition launched.</p>
+  <p class="note"><a href="/" style="color:inherit">Latest issue</a></p>
+</main>
+</body>
+</html>
