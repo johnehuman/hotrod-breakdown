@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Schedule Swap</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Playfair+Display:wght@900&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Same tokens as the Breakdown issue so this drops in as a tab */
+:root{
+  --bg:#f4f3ef;--card:#ffffff;--ink:#1d1d1f;--muted:#5f6168;--line:#e2e0da;--accent:#c8102e;
+  --win:#13753f;--lose:#b3202a;--track:#ecebe6;--faint:#d6d4cd;
+  --display:"Poppins","Helvetica Neue",Arial,sans-serif;--serif:"Playfair Display",Georgia,serif;--body:"Source Sans 3","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light}
+[hidden]{display:none!important}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 var(--body);-webkit-font-smoothing:antialiased}
+.gut{max-width:880px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px))}
+.mast{background:var(--card);border-bottom:4px solid var(--accent)}
+.mast .gut{padding-block:18px 14px}
+.kicker{font:700 11px var(--display);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.kicker b{color:var(--accent)}
+main.gut{padding-block:24px 48px;display:grid;gap:18px}
+h2{margin:0;text-align:center;font:900 clamp(28px,6vw,40px)/1.05 var(--serif);text-transform:uppercase}
+h2::after{content:"";display:block;width:48px;height:3px;background:var(--accent);margin:10px auto 0}
+.hint{margin:0 auto;text-align:center;color:var(--muted);max-width:56ch}
+.card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ink);padding:16px;min-width:0}
+.card h3{margin:0 0 2px;font:700 17px var(--display)}
+.card .sub{margin:0 0 12px;color:var(--muted);font-size:13.5px}
+/* key takeaways */
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.note{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent);padding:12px 14px}
+.note em{display:block;font:700 11px var(--display);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.note b{font:700 17px var(--display);display:block;margin:2px 0}
+.note p{margin:0;font-size:14px;color:var(--muted)}
+/* picker */
+.pick{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.pick label{font:600 13px var(--display);letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+select{font:600 16px var(--body);padding:8px 10px;border:1px solid var(--faint);border-radius:2px;background:var(--card);color:var(--ink);min-width:0;flex:1;max-width:240px}
+.lead{margin:0 0 12px;font-size:15.5px}
+.rows{display:grid;gap:5px}
+.row{display:grid;grid-template-columns:92px 1fr 40px;gap:10px;align-items:center;font-size:14.5px}
+.row .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .rec{font:700 14px var(--display);text-align:right}
+.row.act .nm{font-weight:700}
+.row.act .nm{color:var(--accent)}
+.pips{display:grid;gap:2px}
+.pips i{height:14px;background:var(--track)}
+.pips i.w{background:var(--win)}
+.row.act .pips i.w{background:var(--ink)}
+.row.best .rec{color:var(--win)}
+.row.worst .rec{color:var(--lose)}
+/* heat grid */
+.gwrap{overflow-x:auto;margin:0 -16px;padding:0 16px;-webkit-overflow-scrolling:touch}
+table.heat{border-collapse:separate;border-spacing:2px;font:600 12.5px var(--display);margin:0 auto}
+.heat th{font:600 10.5px var(--display);color:var(--muted);text-align:center;padding:2px 0;letter-spacing:0}
+.heat thead th{height:22px;vertical-align:bottom}
+.heat tbody th{text-align:left;padding:0 6px 0 0;font-size:12px;color:var(--ink);white-space:nowrap;position:sticky;left:0;background:var(--card);cursor:pointer}
+.heat tbody tr.sel th{color:var(--accent)}
+.heat td{width:26px;min-width:26px;height:26px;text-align:center;border-radius:2px;color:var(--ink)}
+.heat td.self{outline:2px solid var(--ink);outline-offset:-2px}
+.heat tbody tr.sel td{box-shadow:inset 0 -3px 0 var(--accent)}
+.heat th.avg,.heat td.avg{padding-left:6px;width:auto;font-size:12px;color:var(--muted);background:none!important}
+.legend{display:flex;align-items:center;gap:6px;justify-content:center;margin-top:10px;font-size:12px;color:var(--muted)}
+.legend span{display:inline-block;width:18px;height:12px;border-radius:2px}
+/* bar boards */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.bars{display:grid;gap:6px}
+.bar{display:grid;grid-template-columns:72px 1fr 44px;gap:8px;align-items:center;font-size:14px}
+.bar .tr{position:relative;height:14px;background:var(--track)}
+.bar .tr i{position:absolute;top:0;bottom:0}
+.bar .tr.div::before{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--muted)}
+.bar b{font:700 13.5px var(--display);text-align:right}
+.method{font-size:13px;color:var(--muted);margin:0}
+@media (max-width:600px){
+  .row{grid-template-columns:80px 1fr 36px;gap:8px}
+  table.heat{border-spacing:1.5px}
+  .gwrap{padding:0 4px}
+  .heat td{width:21px;min-width:21px;height:23px;font-size:11px}
+  .heat th{font-size:9px}
+  .heat tbody th{font-size:11px;padding-right:4px}
+  .heat .avg{display:none}
+  .two{grid-template-columns:1fr}
+}
+@media (max-width:370px){.heat td{width:20px;min-width:20px}.heat tbody th{font-size:10.5px}}
+</style>
+</head>
+<body>
+<header class="mast"><div class="gut"><div class="kicker"><b>Hot Rod</b> · The Breakdown · Playoff Lab preview</div></div></header>
+<main class="gut">
+  <h2>Schedule Swap</h2>
+  <p class="hint" id="dek"></p>
+
+  <div class="notes" id="notes"></div>
+
+  <section class="card">
+    <h3>Pick a manager</h3>
+    <p class="sub">Their real weekly scores, played against each manager's schedule.</p>
+    <div class="pick"><label for="who">Manager</label><select id="who"></select></div>
+    <p class="lead" id="lead"></p>
+    <div class="rows" id="rows"></div>
+  </section>
+
+  <section class="card">
+    <h3>The full grid</h3>
+    <p class="sub">Each row is a manager's scores. Each column is the schedule they play. The boxed cell is their real record. Tap a row to load it above. Average wins column shows on wider screens.</p>
+    <div class="gwrap"><table class="heat" id="heat"></table></div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <div class="two">
+    <section class="card">
+      <h3>Luck</h3>
+      <p class="sub">Actual wins minus wins on an average schedule.</p>
+      <div class="bars" id="luck"></div>
+    </section>
+    <section class="card">
+      <h3>Kindest schedules</h3>
+      <p class="sub">Wins the other 11 would average with each schedule.</p>
+      <div class="bars" id="kind"></div>
+    </section>
+  </div>
+
+  <p class="method" id="method"></p>
+</main>
+<script>
+const D=__DATA__;
+const $=id=>document.getElementById(id);
+const O=D.order,G=D.games,N=O.length;
+const short={Ed:'Ed',Josh:'Josh',John:'John',Hannah:'Han',Derrick:'Der',Brett:'Bre',Wayne:'Way',Dawson:'Daw',Bryan:'Bry',Lewis:'Lew',Kyle:'Kyle',Castano:'Cas'};
+const sh=n=>short[n]||n.slice(0,3);
+const rec=w=>`${w}-${G-w}`;
+const poss=n=>n.endsWith('s')?n+"'":n+"'s";
+const list=a=>a.length<3?a.join(' or '):a.slice(0,-1).join(', ')+' or '+a[a.length-1];
+const f1=x=>x.toFixed(1), sg=x=>(x>0?'+':x<0?'−':'')+Math.abs(x).toFixed(1);
+/* sequential green: 0 wins = track, G wins = full win green */
+function heat(w){const t=w/G;const a=[236,235,230],b=[19,117,63];return `rgb(${a.map((c,i)=>Math.round(c+(b[i]-c)*t)).join(',')})`}
+const inkOn=w=>w/G>0.55?'#fff':'var(--ink)';
+
+$('dek').textContent=`Your scores, someone else's schedule. Every manager's record through Week ${D.through} if they had played each other manager's schedule.`;
+
+/* takeaways */
+const by=k=>O.slice().sort((a,b)=>D[k][b]-D[k][a]);
+const bestScores=by('avg')[0], lucky=by('luck')[0], unlucky=by('luck')[N-1];
+const kindest=by('kindness'), easyTop=kindest.filter(t=>Math.abs(D.kindness[t]-D.kindness[kindest[0]])<1e-9);
+const maxIn=t=>{const m=Math.max(...O.map(y=>D.grid[t][y]));return{m,who:O.filter(y=>D.grid[t][y]===m)}};
+const minIn=t=>{const m=Math.min(...O.map(y=>D.grid[t][y]));return{m,who:O.filter(y=>D.grid[t][y]===m)}};
+const bs=maxIn(bestScores), lw=minIn(lucky), un=maxIn(unlucky);
+$('notes').innerHTML=[
+  ['Best scores',`${bestScores}: ${f1(D.avg[bestScores])} wins`,`On an average schedule. He's ${rec(D.wins[bestScores])}; with ${list(bs.who.map(poss))} schedule he'd be ${rec(bs.m)}.`],
+  ['Luckiest',`${lucky}: ${sg(D.luck[lucky])} wins`,`${rec(D.wins[lucky])} for real; ${f1(D.avg[lucky])} wins on an average schedule. With ${list(lw.who.map(poss))} schedule: ${rec(lw.m)}.`],
+  ['Unluckiest',`${unlucky}: ${sg(D.luck[unlucky])} wins`,`${rec(D.wins[unlucky])} for real. His best case is ${rec(un.m)}, with ${list(un.who.map(poss))} schedule.`],
+  ['Easiest schedule',`${list(easyTop)}`,`An average manager would go ${f1(D.kindness[easyTop[0]])}-${f1(G-D.kindness[easyTop[0]])} on ${easyTop.length>1?'either':'it'}.`]
+].map(([k,h,p])=>`<div class="note"><em>${k}</em><b>${h}</b><p>${p}</p></div>`).join('');
+
+/* picker */
+let me=null; try{me=localStorage.getItem('swapwho')}catch(e){}
+if(!O.includes(me)) me=O[N-1];
+const sel=$('who');
+O.forEach(t=>{const o=document.createElement('option');o.value=t;o.textContent=`${t} (${rec(D.wins[t])})`;sel.appendChild(o)});
+function show(t){
+  me=t;sel.value=t;try{localStorage.setItem('swapwho',t)}catch(e){}
+  const row=D.grid[t],sorted=O.slice().sort((a,b)=>row[b]-row[a]||O.indexOf(a)-O.indexOf(b));
+  const own=a=>list(a.map(y=>y===t?'his own':poss(y)));const hi=maxIn(t),lo=minIn(t),better=O.filter(y=>row[y]>D.wins[t]).length,worse=O.filter(y=>row[y]<D.wins[t]).length;
+  $('lead').innerHTML=`<b>${t}</b> is ${rec(D.wins[t])}. On an average schedule his scores go <b>${f1(D.avg[t])}-${f1(G-D.avg[t])}</b>. `+
+    `Best case <b>${rec(hi.m)}</b> (${own(hi.who)}); worst <b>${rec(lo.m)}</b> (${own(lo.who)}). `+
+    `${better} schedule${better===1?'':'s'} would have done better, ${worse} worse.`;
+  $('rows').innerHTML=sorted.map(y=>{const w=row[y];
+    return `<div class="row${y===t?' act':''}${w===hi.m&&hi.m!==lo.m?' best':''}${w===lo.m&&hi.m!==lo.m?' worst':''}"><span class="nm">${y===t?'Own':poss(y)}</span>`+
+      `<span class="pips" style="grid-template-columns:repeat(${G},1fr)" aria-label="${rec(w)}">${Array.from({length:G},(_,k)=>`<i class="${k<w?'w':''}"></i>`).join('')}</span><span class="rec">${rec(w)}</span></div>`}).join('');
+  document.querySelectorAll('#heat tbody tr').forEach(r=>r.classList.toggle('sel',r.dataset.t===t));
+}
+sel.onchange=()=>show(sel.value);
+
+/* grid */
+$('heat').innerHTML=`<thead><tr><th></th>${O.map(y=>`<th scope="col" title="${poss(y)} schedule">${sh(y)}</th>`).join('')}<th class="avg">Avg</th></tr></thead><tbody>`+
+  O.map(x=>`<tr data-t="${x}"><th scope="row">${x}</th>${O.map(y=>{const w=D.grid[x][y];return `<td class="${x===y?'self':''}" style="background:${heat(w)};color:${inkOn(w)}" title="${x} on ${poss(y)} schedule: ${rec(w)}">${w}</td>`}).join('')}<td class="avg">${f1(D.avg[x])}</td></tr>`).join('')+`</tbody>`;
+document.querySelectorAll('#heat tbody tr').forEach(r=>r.onclick=()=>{show(r.dataset.t);sel.scrollIntoView({behavior:'smooth',block:'center'})});
+$('legend').innerHTML=`Wins&nbsp;${[0,2,4,6,8].filter(w=>w<=G).map(w=>`<span style="background:${heat(w)}"></span>${w}`).join(' ')}`;
+
+/* luck: diverging from zero */
+const L=by('luck'),mxL=Math.max(...O.map(t=>Math.abs(D.luck[t])));
+$('luck').innerHTML=L.map(t=>{const v=D.luck[t],w=Math.abs(v)/mxL*50;
+  return `<div class="bar"><span>${t}</span><span class="tr div"><i style="${v>=0?`left:50%;width:${w}%;background:var(--win)`:`right:50%;width:${w}%;background:var(--lose)`}"></i></span><b>${sg(v)}</b></div>`}).join('');
+$('kind').innerHTML=kindest.map(t=>{const v=D.kindness[t];
+  return `<div class="bar"><span>${t}</span><span class="tr"><i style="left:0;width:${v/G*100}%;background:var(--ink)"></i></span><b>${f1(v)}</b></div>`}).join('');
+
+$('method').textContent=`How it works: a manager on someone else's schedule faces that schedule's opponent each week and uses both teams' real scores. If the schedule would have them play themselves, they face the schedule's owner instead. Through Week ${D.through}; ${G} games each.`;
+show(me);
+</script>
+</body>
+</html>
