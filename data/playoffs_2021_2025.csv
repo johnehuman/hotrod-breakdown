@@ -1,0 +1,31 @@
+season,week,round,winner,wseed,wpts,loser,lseed,lpts,margin
+2021,15,Quarterfinal,Derrick,6,135.0,Dawson,3,68.5,66.5
+2021,15,Quarterfinal,Wayne,5,116.6,Bryan,4,68.0,48.6
+2021,16,Semifinal,John,1,139.1,Wayne,5,111.0,28.1
+2021,16,Semifinal,Kevin,2,105.4,Derrick,6,89.8,15.6
+2021,17,Championship,Kevin,2,137.4,John,1,125.3,12.1
+2021,17,Third place,Wayne,5,118.3,Derrick,6,112.1,6.2
+2022,15,Quarterfinal,Castano,3,139.3,Bryan,6,93.74,45.56
+2022,15,Quarterfinal,Wayne,5,136.16,Ed,4,96.5,39.66
+2022,16,Semifinal,Lewis,1,76.58,Wayne,5,76.1,0.48
+2022,16,Semifinal,Castano,3,128.36,Brett,2,126.24,2.12
+2022,17,Championship,Castano,3,98.98,Lewis,1,88.3,10.68
+2022,17,Third place,Brett,2,123.38,Wayne,5,84.46,38.92
+2023,15,Quarterfinal,Brett,3,149.38,Juan,6,101.34,48.04
+2023,15,Quarterfinal,Dawson,5,96.8,Bryan,4,64.02,32.78
+2023,16,Semifinal,Dawson,5,118.12,Thomas,1,109.48,8.64
+2023,16,Semifinal,Jake,2,126.42,Brett,3,65.6,60.82
+2023,17,Championship,Jake,2,95.16,Dawson,5,88.08,7.08
+2023,17,Third place,Thomas,1,134.82,Brett,3,114.3,20.52
+2024,15,Quarterfinal,Jake,3,164.0,Ed,6,107.16,56.84
+2024,15,Quarterfinal,Brett,5,124.74,Castano,4,76.44,48.3
+2024,16,Semifinal,John,1,138.28,Brett,5,105.44,32.84
+2024,16,Semifinal,Dawson,2,163.52,Jake,3,111.0,52.52
+2024,17,Championship,Dawson,2,118.18,John,1,114.12,4.06
+2024,17,Third place,Jake,3,137.94,Brett,5,122.88,15.06
+2025,15,Quarterfinal,Ed,3,122.6,Kyle,6,121.6,1.0
+2025,15,Quarterfinal,Wayne,4,122.12,Castano,5,76.46,45.66
+2025,16,Semifinal,Wayne,4,117.9,Bryan,1,106.82,11.08
+2025,16,Semifinal,Ed,3,142.8,Derrick,2,128.96,13.84
+2025,17,Championship,Wayne,4,149.88,Ed,3,104.64,45.24
+2025,17,Third place,Bryan,1,121.08,Derrick,2,104.6,16.48

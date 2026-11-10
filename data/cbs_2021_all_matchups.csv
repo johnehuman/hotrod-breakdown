@@ -1,0 +1,96 @@
+season,week,matchup_id,tier,round_name,winner_id,winner,winner_team,winner_points,loser_id,loser,loser_team,loser_points,margin
+2021,1,1,regular_season,Regular season,7,John,Team Human,152.80,3,Dawson,THE DAWZ,132.10,20.70
+2021,1,2,regular_season,Regular season,2,Jake,WAMBO,107.40,4,Bryan,kingdom without a king,85.90,21.50
+2021,1,3,regular_season,Regular season,8,Wayne,Winclair,103.00,5,Brett,B Frizz,94.60,8.40
+2021,1,4,regular_season,Regular season,1,Derrick,Uncle D,123.50,10,Castano,Disrespect All Ya Chicks,110.30,13.20
+2021,1,5,regular_season,Regular season,12,Kevin,El Cunado,163.00,11,Lewis,Phyzikial Elliott,83.60,79.40
+2021,1,6,regular_season,Regular season,9,Juan,Game of Jones,111.10,6,Ed,Van Buren Boys,82.40,28.70
+2021,2,1,regular_season,Regular season,4,Bryan,kingdom without a king,163.00,7,John,Team Human,71.70,91.30
+2021,2,2,regular_season,Regular season,9,Juan,Game of Jones,144.10,2,Jake,WAMBO,92.90,51.20
+2021,2,3,regular_season,Regular season,11,Lewis,Phyzikial Elliott,105.20,8,Wayne,Winclair,81.70,23.50
+2021,2,4,regular_season,Regular season,5,Brett,B Frizz,145.90,6,Ed,Van Buren Boys,115.10,30.80
+2021,2,5,regular_season,Regular season,1,Derrick,Uncle D,104.60,3,Dawson,THE DAWZ,102.00,2.60
+2021,2,6,regular_season,Regular season,12,Kevin,El Cunado,134.20,10,Castano,Disrespect All Ya Chicks,109.90,24.30
+2021,3,1,regular_season,Regular season,5,Brett,B Frizz,119.80,7,John,Team Human,109.90,9.90
+2021,3,2,regular_season,Regular season,8,Wayne,Winclair,125.40,2,Jake,WAMBO,103.30,22.10
+2021,3,3,regular_season,Regular season,4,Bryan,kingdom without a king,124.40,11,Lewis,Phyzikial Elliott,108.80,15.60
+2021,3,4,regular_season,Regular season,10,Castano,Disrespect All Ya Chicks,134.50,3,Dawson,THE DAWZ,97.50,37.00
+2021,3,5,regular_season,Regular season,1,Derrick,Uncle D,101.70,9,Juan,Game of Jones,0.00,101.70
+2021,3,6,regular_season,Regular season,6,Ed,Van Buren Boys,114.40,12,Kevin,El Cunado,85.20,29.20
+2021,4,1,regular_season,Regular season,7,John,Team Human,147.50,8,Wayne,Winclair,88.70,58.80
+2021,4,2,regular_season,Regular season,11,Lewis,Phyzikial Elliott,160.00,2,Jake,WAMBO,97.00,63.00
+2021,4,3,regular_season,Regular season,4,Bryan,kingdom without a king,105.30,6,Ed,Van Buren Boys,79.50,25.80
+2021,4,4,regular_season,Regular season,10,Castano,Disrespect All Ya Chicks,117.60,5,Brett,B Frizz,87.30,30.30
+2021,4,5,regular_season,Regular season,12,Kevin,El Cunado,133.90,1,Derrick,Uncle D,86.40,47.50
+2021,4,6,regular_season,Regular season,3,Dawson,THE DAWZ,130.80,9,Juan,Game of Jones,73.50,57.30
+2021,5,1,regular_season,Regular season,7,John,Team Human,159.00,11,Lewis,Phyzikial Elliott,74.30,84.70
+2021,5,2,regular_season,Regular season,2,Jake,WAMBO,115.00,3,Dawson,THE DAWZ,108.10,6.90
+2021,5,3,regular_season,Regular season,4,Bryan,kingdom without a king,172.10,10,Castano,Disrespect All Ya Chicks,132.60,39.50
+2021,5,4,regular_season,Regular season,6,Ed,Van Buren Boys,159.90,8,Wayne,Winclair,150.60,9.30
+2021,5,5,regular_season,Regular season,1,Derrick,Uncle D,97.90,5,Brett,B Frizz,67.30,30.60
+2021,5,6,regular_season,Regular season,12,Kevin,El Cunado,121.60,9,Juan,Game of Jones,115.00,6.60
+2021,6,1,regular_season,Regular season,7,John,Team Human,150.00,9,Juan,Game of Jones,117.90,32.10
+2021,6,2,regular_season,Regular season,2,Jake,WAMBO,118.50,10,Castano,Disrespect All Ya Chicks,100.50,18.00
+2021,6,3,regular_season,Regular season,5,Brett,B Frizz,123.30,4,Bryan,kingdom without a king,105.80,17.50
+2021,6,4,regular_season,Regular season,11,Lewis,Phyzikial Elliott,147.10,3,Dawson,THE DAWZ,81.40,65.70
+2021,6,5,regular_season,Regular season,12,Kevin,El Cunado,146.70,8,Wayne,Winclair,90.70,56.00
+2021,6,6,regular_season,Regular season,1,Derrick,Uncle D,125.80,6,Ed,Van Buren Boys,114.80,11.00
+2021,7,1,regular_season,Regular season,7,John,Team Human,127.80,2,Jake,WAMBO,106.30,21.50
+2021,7,2,regular_season,Regular season,4,Bryan,kingdom without a king,134.80,1,Derrick,Uncle D,82.60,52.20
+2021,7,3,regular_season,Regular season,3,Dawson,THE DAWZ,130.40,12,Kevin,El Cunado,112.10,18.30
+2021,7,4,regular_season,Regular season,10,Castano,Disrespect All Ya Chicks,144.30,8,Wayne,Winclair,108.40,35.90
+2021,7,5,regular_season,Regular season,11,Lewis,Phyzikial Elliott,99.70,6,Ed,Van Buren Boys,68.80,30.90
+2021,7,6,regular_season,Regular season,9,Juan,Game of Jones,108.50,5,Brett,B Frizz,84.50,24.00
+2021,8,1,regular_season,Regular season,7,John,Team Human,94.00,6,Ed,Van Buren Boys,90.90,3.10
+2021,8,2,regular_season,Regular season,12,Kevin,El Cunado,120.30,2,Jake,WAMBO,89.50,30.80
+2021,8,3,regular_season,Regular season,10,Castano,Disrespect All Ya Chicks,118.60,11,Lewis,Phyzikial Elliott,66.30,52.30
+2021,8,4,regular_season,Regular season,8,Wayne,Winclair,117.10,1,Derrick,Uncle D,112.60,4.50
+2021,8,5,regular_season,Regular season,4,Bryan,kingdom without a king,118.90,9,Juan,Game of Jones,100.20,18.70
+2021,8,6,regular_season,Regular season,3,Dawson,THE DAWZ,119.80,5,Brett,B Frizz,87.80,32.00
+2021,9,1,regular_season,Regular season,7,John,Team Human,106.70,12,Kevin,El Cunado,89.10,17.60
+2021,9,2,regular_season,Regular season,2,Jake,WAMBO,99.60,1,Derrick,Uncle D,76.60,23.00
+2021,9,3,regular_season,Regular season,8,Wayne,Winclair,98.40,4,Bryan,kingdom without a king,91.80,6.60
+2021,9,4,regular_season,Regular season,9,Juan,Game of Jones,139.30,10,Castano,Disrespect All Ya Chicks,77.60,61.70
+2021,9,5,regular_season,Regular season,5,Brett,B Frizz,135.50,11,Lewis,Phyzikial Elliott,87.40,48.10
+2021,9,6,regular_season,Regular season,3,Dawson,THE DAWZ,106.20,6,Ed,Van Buren Boys,99.90,6.30
+2021,10,1,regular_season,Regular season,7,John,Team Human,100.90,1,Derrick,Uncle D,93.40,7.50
+2021,10,2,regular_season,Regular season,5,Brett,B Frizz,97.70,2,Jake,WAMBO,87.60,10.10
+2021,10,3,regular_season,Regular season,12,Kevin,El Cunado,75.60,4,Bryan,kingdom without a king,73.10,2.50
+2021,10,4,regular_season,Regular season,6,Ed,Van Buren Boys,117.80,10,Castano,Disrespect All Ya Chicks,107.40,10.40
+2021,10,5,regular_season,Regular season,11,Lewis,Phyzikial Elliott,115.10,9,Juan,Game of Jones,54.20,60.90
+2021,10,6,regular_season,Regular season,3,Dawson,THE DAWZ,116.70,8,Wayne,Winclair,76.00,40.70
+2021,11,1,regular_season,Regular season,10,Castano,Disrespect All Ya Chicks,140.10,7,John,Team Human,111.60,28.50
+2021,11,2,regular_season,Regular season,6,Ed,Van Buren Boys,86.60,2,Jake,WAMBO,57.60,29.00
+2021,11,3,regular_season,Regular season,12,Kevin,El Cunado,132.10,5,Brett,B Frizz,119.40,12.70
+2021,11,4,regular_season,Regular season,1,Derrick,Uncle D,121.80,11,Lewis,Phyzikial Elliott,101.00,20.80
+2021,11,5,regular_season,Regular season,3,Dawson,THE DAWZ,116.40,4,Bryan,kingdom without a king,90.60,25.80
+2021,11,6,regular_season,Regular season,8,Wayne,Winclair,108.00,9,Juan,Game of Jones,104.70,3.30
+2021,12,1,regular_season,Regular season,7,John,Team Human,165.20,3,Dawson,THE DAWZ,99.80,65.40
+2021,12,2,regular_season,Regular season,2,Jake,WAMBO,115.80,4,Bryan,kingdom without a king,68.60,47.20
+2021,12,3,regular_season,Regular season,8,Wayne,Winclair,150.00,5,Brett,B Frizz,92.30,57.70
+2021,12,4,regular_season,Regular season,1,Derrick,Uncle D,103.00,10,Castano,Disrespect All Ya Chicks,96.80,6.20
+2021,12,5,regular_season,Regular season,12,Kevin,El Cunado,87.80,11,Lewis,Phyzikial Elliott,82.80,5.00
+2021,12,6,regular_season,Regular season,6,Ed,Van Buren Boys,108.10,9,Juan,Game of Jones,104.10,4.00
+2021,13,1,regular_season,Regular season,4,Bryan,kingdom without a king,133.20,7,John,Team Human,75.60,57.60
+2021,13,2,regular_season,Regular season,9,Juan,Game of Jones,111.60,2,Jake,WAMBO,103.60,8.00
+2021,13,3,regular_season,Regular season,6,Ed,Van Buren Boys,137.80,5,Brett,B Frizz,107.30,30.50
+2021,13,4,regular_season,Regular season,3,Dawson,THE DAWZ,133.30,1,Derrick,Uncle D,80.60,52.70
+2021,13,5,regular_season,Regular season,12,Kevin,El Cunado,140.20,10,Castano,Disrespect All Ya Chicks,121.30,18.90
+2021,13,6,regular_season,Regular season,8,Wayne,Winclair,100.60,11,Lewis,Phyzikial Elliott,86.90,13.70
+2021,14,1,regular_season,Regular season,7,John,Team Human,97.30,6,Ed,Van Buren Boys,87.00,10.30
+2021,14,2,regular_season,Regular season,2,Jake,WAMBO,92.50,5,Brett,B Frizz,0.00,92.50
+2021,14,3,regular_season,Regular season,4,Bryan,kingdom without a king,137.40,8,Wayne,Winclair,108.00,29.40
+2021,14,4,regular_season,Regular season,9,Juan,Game of Jones,110.50,1,Derrick,Uncle D,108.50,2.00
+2021,14,5,regular_season,Regular season,10,Castano,Disrespect All Ya Chicks,122.50,11,Lewis,Phyzikial Elliott,87.50,35.00
+2021,14,6,regular_season,Regular season,3,Dawson,THE DAWZ,142.10,12,Kevin,El Cunado,95.90,46.20
+2021,15,1,championship_bracket,Quarterfinal,1,Derrick,Uncle D,135.00,3,Dawson,THE DAWZ,68.50,66.50
+2021,15,2,championship_bracket,Quarterfinal,8,Wayne,Winclair,116.60,4,Bryan,kingdom without a king,68.00,48.60
+2021,15,3,consolation,Consolation,2,Jake,WAMBO,96.00,11,Lewis,Phyzikial Elliott,72.40,23.60
+2021,15,4,consolation,Consolation,5,Brett,B Frizz,95.80,9,Juan,Game of Jones,75.00,20.80
+2021,16,1,championship_bracket,Semifinal,7,John,Team Human,139.10,8,Wayne,Winclair,111.00,28.10
+2021,16,2,championship_bracket,Semifinal,12,Kevin,El Cunado,105.40,1,Derrick,Uncle D,89.80,15.60
+2021,16,3,consolation,Consolation,10,Castano,Disrespect All Ya Chicks,139.10,2,Jake,WAMBO,122.10,17.00
+2021,16,4,consolation,Consolation,6,Ed,Van Buren Boys,127.00,5,Brett,B Frizz,34.90,92.10
+2021,17,1,championship_bracket,Championship,12,Kevin,El Cunado,137.40,7,John,Team Human,125.30,12.10
+2021,17,2,championship_bracket,Third-place match,8,Wayne,Winclair,118.30,1,Derrick,Uncle D,112.10,6.20
+2021,17,3,consolation,Consolation,10,Castano,Disrespect All Ya Chicks,150.80,6,Ed,Van Buren Boys,90.80,60.00
