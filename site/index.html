@@ -414,6 +414,25 @@ table.eftable{min-width:0}
 .cwc.in em{color:var(--win)}.cwc.out em{color:var(--lose)}
 .cwc b{display:block;font:700 17px var(--display);margin:2px 0 4px}
 .cwc p{margin:0;font-size:14.5px}
+/* Eliminated-team storyline */
+.spl-lead{margin:4px 0 12px;font-size:15.5px}
+.spl-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:10px}
+.spl-c{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent);padding:12px 14px}
+.spl-c em{display:block;font:700 11px var(--display);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.spl-c b{display:block;font:800 24px/1.1 var(--display);margin:2px 0}
+.spl-c.bad b{color:var(--lose)}
+.spl-c p{margin:0;font-size:14px;color:var(--muted)}
+.spl-rows{display:grid;gap:8px}
+.spl-r{display:grid;grid-template-columns:52px 1fr;gap:4px 10px;background:var(--card);border:1px solid var(--line);padding:10px 12px}
+.spl-r.now{border-left:4px solid var(--accent)}
+.spl-r .swk{grid-row:span 2;font:800 15px/1.2 var(--display);color:var(--accent)}
+.spl-r .who b{font:700 16px var(--display)}.spl-r .who small.pw{display:block;margin:2px 0 0}.spl-r .who small{color:var(--muted);font-size:13px;margin-left:6px}
+.spl-r .hit{font-size:14px}.spl-r .hit small{display:block;color:var(--muted);font-size:13px}
+.spl-dist{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;align-items:end;height:150px;padding:0 4px}
+.spl-dist div{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:3px}
+.spl-dist i{display:block;width:100%;background:var(--ink);min-height:2px;border-radius:2px 2px 0 0}
+.spl-dist div:first-child i,.spl-dist div:nth-child(2) i{background:var(--lose)}
+.spl-dist b{font:700 13px var(--display)}.spl-dist span{font-size:12.5px;color:var(--muted)}
 
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important}}
 
@@ -790,6 +809,7 @@ function renderPoints(){
 }
 function renderRoots(){
   const box=$('roots');box.innerHTML='';rootPicks=G.map(()=>null);
+  const elim=!!SPOIL[T[me].k];$('apply').hidden=elim;$('ptsroot').hidden=elim;if(elim){renderSpoil();return}
   const rows=G.map((g,j)=>{
     const others=picks.slice();others[j]=null;
     const ifA=others.slice();ifA[j]=0;const ifH=others.slice();ifH[j]=1;
@@ -922,6 +942,31 @@ function renderStandings(){
   });
 }
 const STATUS={DYC:["Eliminated","bad"]};
+const SPOIL={"DYC": {"games": [{"wk": 10, "opp": "SM", "p": 0.436, "oppPO": [79.6, 94.5], "oppBy": [7.8, 26.9], "ben": [["PH", 4.6], ["BF", 4.1]]}, {"wk": 11, "opp": "PH", "p": 0.457, "oppPO": [33.0, 62.3], "oppBy": [0.3, 3.9], "ben": [["BF", 10.1], ["SM", 5.1]]}, {"wk": 12, "opp": "UD", "p": 0.392, "oppPO": [91.0, 98.8], "oppBy": [19.7, 47.2], "ben": [["PH", 2.5], ["BRY", 1.2]]}, {"wk": 13, "opp": "VBB", "p": 0.421, "oppPO": [99.8, 100.0], "oppBy": [68.4, 90.4], "ben": []}, {"wk": 14, "opp": "DZ", "p": 0.462, "oppPO": [0.9, 7.2], "oppBy": [0.0, 0.0], "ben": [["BF", 1.9], ["PH", 1.6]]}], "dist": [6.1, 22.3, 33.7, 26.0, 10.2, 1.7], "cur": 0}};
+/* ---- Eliminated teams: storyline instead of rooting list ---- */
+function renderSpoil(){
+  const S=SPOIL[T[me].k],t=T[me],nm=t.name,pct=x=>x>=99.95?'>99.9%':x<0.05&&x>0?'<0.1%':x.toFixed(1)+'%';
+  const nmOf=k=>T[ix[k]].name,recOf=k=>`${T[ix[k]].w}-${T[ix[k]].l}`;
+  const d=S.dist,first=100-d[0],le1=d[0]+d[1],best=S.games.slice().sort((a,b)=>b.p-a.p)[0];
+  const swing=g=>Math.max(g.oppPO[1]-g.oppPO[0],g.oppBy[1]-g.oppBy[0]);
+  const big=S.games.slice().sort((a,b)=>swing(b)-swing(a))[0];
+  let h=`<div class="spl"><p class="spl-lead"><b>${nm}</b> is out of the playoff race, but there's still plenty riding on his last ${S.games.length} games.</p>
+  <div class="spl-cards">
+   <div class="spl-c"><em>The first win</em><b>${pct(first)}</b><p>Chance ${nm} wins at least once. Best shot: Week ${best.wk} vs ${nmOf(best.opp)} (${Math.round(best.p*100)}%).</p></div>
+   <div class="spl-c bad"><em>Avoiding history</em><b>${pct(le1)}</b><p>Chance of finishing 1-13 or worse, a new league low. No team has finished worse than 2-12. A winless 0-14: ${pct(d[0])}.</p></div>
+   <div class="spl-c"><em>Spoiler</em><b>Week ${big.wk}</b><p>His biggest chance to wreck someone's season: ${nmOf(big.opp)}, who drops ${Math.round(swing(big))} points of ${big.oppPO[1]-big.oppPO[0]>=big.oppBy[1]-big.oppBy[0]?'playoff':'bye'} odds with a loss to ${nm}.</p></div>
+  </div>
+  <h3 class="subhead">The spoiler schedule</h3>
+  <div class="spl-rows">${S.games.map(g=>{const dp=g.oppPO[1]-g.oppPO[0],db=g.oppBy[1]-g.oppBy[0];
+    const hurt=(dp>=0.5?`playoffs ${pct(g.oppPO[1])} → <b>${pct(g.oppPO[0])}</b>`:'')+(dp>=0.5&&db>=0.5?' · ':'')+(db>=0.5?`bye ${pct(g.oppBy[1])} → <b>${pct(g.oppBy[0])}</b>`:'');
+    const ben=g.ben.length?`Helps ${g.ben.map(([k,v])=>`${nmOf(k)} (+${v.toFixed(0)})`).join(', ')}`:'';
+    return `<div class="spl-r${g.wk===WEEK0?' now':''}"><span class="swk">Wk ${g.wk}</span><span class="who"><b>vs ${nmOf(g.opp)}</b> <small>${recOf(g.opp)}</small><small class="pw">${nm} wins ${Math.round(g.p*100)}% of the time</small></span><span class="hit">${hurt?`A ${nm} win: ${nmOf(g.opp)}'s ${hurt}`:'Little at stake for '+nmOf(g.opp)}${ben?`<small>${ben} playoff odds</small>`:''}</span></div>`}).join('')}</div>
+  <h3 class="subhead">How many wins?</h3>
+  <div class="spl-dist">${d.map((v,x)=>`<div><i style="height:${v/Math.max(...d)*100}%"></i><b>${v>=0.5?Math.round(v)+'%':'<1%'}</b><span>${S.cur+x}-${t.l+S.games.length-x}</span></div>`).join('')}</div>
+  <p class="hint">Odds from the same 400,000 simulated seasons as the rest of the Lab. “Helps” shows the teams whose playoff odds rise most when ${nm} wins that game.</p></div>`;
+  $('roots').innerHTML=h;
+}
+
 /* ---- Scenario Builder (Beta 1) ---- */
 const SIM={"keys":["VBB","SM","TH","DD","UD","BF","PH","DZ","BRY","TR","SHOE","DYC"],"mu":[108.179,107.035,108.202,105.1,110.503,107.534,105.135,104.822,100.97,104.176,104.115,101.832],"sd":22.2,"tsd":3.385,"W":[8,6,6,7,6,5,5,3,4,2,2,0],"PF":[1060.16,1010.96,1061.14,927.78,1160.08,1032.42,929.26,915.8,750.18,888.02,885.4,787.22],"sched":[[[5,7],[10,9],[1,11],[8,2],[3,4],[6,0]],[[3,1],[2,7],[8,9],[6,11],[5,4],[10,0]],[[6,3],[5,1],[9,2],[8,10],[11,4],[7,0]],[[5,3],[10,9],[8,2],[1,6],[7,4],[11,0]],[[3,1],[11,7],[8,9],[10,2],[5,6],[4,0]]]};
 const NW=SIM.sched.length, WEEK0=D.week+1;
