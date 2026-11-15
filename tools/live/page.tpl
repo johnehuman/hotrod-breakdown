@@ -75,7 +75,7 @@ tr.cut td{border-bottom:2px solid var(--accent)}
   <p class="hint">Change since Thursday's Week 9 issue.</p>
   <div class="movers" id="movers"></div>
   <h2>Playoff Odds</h2>
-  <p class="hint">Records show where each team lands if every current leader holds. Top 6 make it; the red line is the cut.</p>
+  <p class="hint">Records show where each team lands if every projected winner wins. Top 6 make it; the red line is the cut.</p>
   <section class="card"><table><thead><tr><th>Manager</th><th>Pre-game</th><th class="nowh">Now</th><th>Move</th></tr></thead><tbody id="odds"></tbody></table></section>
   <h2>Bye Odds</h2>
   <p class="hint">Seeds 1–2 get a first-round bye.</p>
@@ -107,7 +107,7 @@ function render(R,wk){
   $('scen').hidden=!picks.length;$('scentext').innerHTML='<b>Scenario:</b> '+picks.join(' · ');
   // records if leaders hold
   const W=S.W.slice(),L=S.W.map(w=>9-w);
-  R.games.forEach((g,j)=>{const aw=forced[j]?forced[j]==='a':wk?wk[g.a].live>=wk[g.h].live&&!(wk[g.a].live===wk[g.h].live&&g.pa<50):g.pa>=50;W[aw?g.a:g.h]++;L[aw?g.h:g.a]++});
+  R.games.forEach((g,j)=>{const aw=forced[j]?forced[j]==='a':g.pa>=50;W[aw?g.a:g.h]++;L[aw?g.h:g.a]++});
   // movers
   const mv=S.keys.map((k,i)=>{const dp=R.po[i]-S.prePO[i],db=R.by[i]-S.preBY[i];return Math.abs(db)>Math.abs(dp)?{i,what:'Bye',from:S.preBY[i],to:R.by[i],d:db}:{i,what:'Playoff',from:S.prePO[i],to:R.po[i],d:dp}})
     .sort((a,b)=>Math.abs(b.d)-Math.abs(a.d)).slice(0,4);
