@@ -1,0 +1,100 @@
+{
+"matchups": [
+{
+"scoring": {
+"fetchedAt": "2026-11-15T18:14:05.183Z"
+},
+"final": false,
+"away": {
+"teamName": "brybrybaggins",
+"livePoints": 38.42,
+"projectedPoints": 83.23
+},
+"home": {
+"teamName": "Team Human",
+"livePoints": 42.46,
+"projectedPoints": 103.05
+}
+},
+{
+"scoring": {
+"fetchedAt": "2026-11-15T18:14:05.183Z"
+},
+"final": false,
+"away": {
+"teamName": "For The Shoe",
+"livePoints": 1.5,
+"projectedPoints": 92.77
+},
+"home": {
+"teamName": "Tractorcito",
+"livePoints": 33.9,
+"projectedPoints": 81.57
+}
+},
+{
+"scoring": {
+"fetchedAt": "2026-11-15T18:14:05.183Z"
+},
+"final": false,
+"away": {
+"teamName": "Shooter Mcgavin",
+"livePoints": 13.2,
+"projectedPoints": 116.81
+},
+"home": {
+"teamName": "Disrespect Ya Chick",
+"livePoints": 18.24,
+"projectedPoints": 122.16
+}
+},
+{
+"scoring": {
+"fetchedAt": "2026-11-15T18:14:05.183Z"
+},
+"final": false,
+"away": {
+"teamName": "Phins 1-16",
+"livePoints": 34.8,
+"projectedPoints": 99.24
+},
+"home": {
+"teamName": "Van Buren Boys",
+"livePoints": 59.98,
+"projectedPoints": 137.52
+}
+},
+{
+"scoring": {
+"fetchedAt": "2026-11-15T18:14:05.183Z"
+},
+"final": false,
+"away": {
+"teamName": "B-Frizz",
+"livePoints": 21.96,
+"projectedPoints": 81.64
+},
+"home": {
+"teamName": "4th and Dawz",
+"livePoints": 6.32,
+"projectedPoints": 103.96
+}
+},
+{
+"scoring": {
+"fetchedAt": "2026-11-15T18:14:05.183Z"
+},
+"final": false,
+"away": {
+"teamName": "Double Ds",
+"livePoints": 83.76,
+"projectedPoints": 142.29
+},
+"home": {
+"teamName": "Uncle D ",
+"livePoints": 6.32,
+"projectedPoints": 96.97
+}
+}
+]
+}
