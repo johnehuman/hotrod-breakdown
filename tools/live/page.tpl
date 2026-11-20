@@ -1,4 +1,4 @@
-<title>Week 10 Live Odds</title>
+<title>Week __WK__ Live Odds</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Playfair+Display:wght@900&family=Source+Sans+3:wght@400;600;700&display=swap">
 <style>
 :root{--bg:#f4f3ef;--card:#fff;--ink:#1d1d1f;--muted:#5f6168;--line:#e2e0da;--accent:#c8102e;--win:#13753f;--lose:#b3202a;--stake:#f7e7a6;--stakeline:#e5cf73;--bar:#ecebe6;
@@ -65,14 +65,14 @@ tr.cut td{border-bottom:2px solid var(--accent)}
 </style>
 <header class="mast"><div class="gut">
   <div class="kicker"><b>Hot Rod</b> · The Breakdown · Live tracker</div>
-  <h1>Week 10 Live Odds</h1>
+  <h1>Week __WK__ Live Odds</h1>
   <div class="status"><span class="live" id="stamp">Connecting…</span><button id="refresh" hidden>Refresh now</button></div>
 </div></header>
 <div class="scen" id="scen" hidden><span id="scentext"></span><button id="reset">Back to live</button></div>
 <main class="gut">
   <div class="banner" id="banner" hidden></div>
   <h2>Biggest Movers</h2>
-  <p class="hint">Change since Thursday's Week 9 issue.</p>
+  <p class="hint">Change since Thursday's Week __PREV__ issue.</p>
   <div class="movers" id="movers"></div>
   <h2>Playoff Odds</h2>
   <p class="hint">Records show where each team lands if every projected winner wins. Top 6 make it; the red line is the cut.</p>
@@ -81,14 +81,14 @@ tr.cut td{border-bottom:2px solid var(--accent)}
   <p class="hint">Seeds 1–2 get a first-round bye.</p>
   <section class="card"><table><thead><tr><th>Manager</th><th>Pre-game</th><th class="nowh">Now</th><th>Move</th></tr></thead><tbody id="byes"></tbody></table></section>
   <h2>What If</h2>
-  <p class="hint">Lock in Week 10 winners to see how the odds above would change. Tap <b>Live</b> to undo.</p>
+  <p class="hint">Lock in Week __WK__ winners to see how the odds above would change. Tap <b>Live</b> to undo.</p>
   <div class="games" id="games"></div>
-  <p class="method">How this works: the same model as the Week 9 issue. Each team's Week 10 score is its live score plus what ESPN projects for the rest of its lineup, with less uncertainty as fewer points remain. Weeks 11–14 are simulated as before (60,000 seasons per update). Seeding: record, then points for. </p>
+  <p class="method">How this works: the same model as the Week __PREV__ issue. Each team's Week __WK__ score is its live score plus what ESPN projects for the rest of its lineup, with less uncertainty as fewer points remain. Weeks 11–14 are simulated as before (60,000 seasons per update). Seeding: record, then points for. </p>
 </main>
 <script>
 __SIM__
 const S=__S__;const SERVER="League Loom",TOOL="fantasy_get_matchups";
-const INPUT={league_query:"Hot Rod",season:2026,week:10,live:true,response_format:"json",sport:"NFL"};
+const INPUT={league_query:"Hot Rod",season:2026,week:__WK__,live:true,response_format:"json",sport:"NFL"};
 const $=id=>document.getElementById(id),N=60000,n=S.keys.length;
 const pct=x=>x>=99.95?'>99.9%':x>0&&x<0.05?'<0.1%':x.toFixed(1)+'%';
 const p0=x=>x>=99.5?'>99%':x>0&&x<0.5?'<1%':Math.round(x)+'%';
@@ -106,14 +106,14 @@ function render(R,wk){
   const picks=R.games.map((g,j)=>forced[j]?`${nm[forced[j]==='a'?g.a:g.h]} over ${nm[forced[j]==='a'?g.h:g.a]}`:null).filter(Boolean);
   $('scen').hidden=!picks.length;$('scentext').innerHTML='<b>Scenario:</b> '+picks.join(' · ');
   // records if leaders hold
-  const W=S.W.slice(),L=S.W.map(w=>9-w);
+  const W=S.W.slice(),L=S.W.map(w=>S.week-1-w);
   R.games.forEach((g,j)=>{const aw=forced[j]?forced[j]==='a':g.pa>=50;W[aw?g.a:g.h]++;L[aw?g.h:g.a]++});
   // movers
   const mv=S.keys.map((k,i)=>{const dp=R.po[i]-S.prePO[i],db=R.by[i]-S.preBY[i];return Math.abs(db)>Math.abs(dp)?{i,what:'Bye',from:S.preBY[i],to:R.by[i],d:db}:{i,what:'Playoff',from:S.prePO[i],to:R.po[i],d:dp}})
     .sort((a,b)=>Math.abs(b.d)-Math.abs(a.d)).slice(0,4);
   $('movers').innerHTML=mv.map(m=>`<div class="mv"><em>${m.what} odds</em><b>${nm[m.i]}</b><div class="big ${m.d>=0.05?'up':m.d<=-0.05?'dn':'flat'}">${m.d>=0?'+':'−'}${Math.abs(m.d).toFixed(1)}</div><p>${pct(m.from)} → ${pct(m.to)}</p></div>`).join('');
   const table=(id,pre,now,cut)=>{const ord=[...Array(n).keys()].sort((a,b)=>now[b]-now[a]||R.po[b]-R.po[a]||pre[b]-pre[a]);
-    $(id).innerHTML=ord.map((i,r)=>`<tr class="${r===cut-1?'cut':''}"><td><span class="nm">${nm[i]}</span><small>${S.W[i]}-${9-S.W[i]} → ${W[i]}-${L[i]}</small></td><td class="was">${pct(pre[i])}</td><td class="is">${pct(now[i])}</td><td class="mvn">${mvc(now[i]-pre[i])}</td></tr>`).join('')};
+    $(id).innerHTML=ord.map((i,r)=>`<tr class="${r===cut-1?'cut':''}"><td><span class="nm">${nm[i]}</span><small>${S.W[i]}-${S.week-1-S.W[i]} → ${W[i]}-${L[i]}</small></td><td class="was">${pct(pre[i])}</td><td class="is">${pct(now[i])}</td><td class="mvn">${mvc(now[i]-pre[i])}</td></tr>`).join('')};
   table('odds',S.prePO,R.po,6);table('byes',S.preBY,R.by,2);
 }
 function stake(i,w,l){if(w[0]==null||l[0]==null)return `<b>${S.names[i]}</b>: decided`;
@@ -130,7 +130,7 @@ function banner(html,btn){const b=$('banner');if(!html){b.hidden=true;return}b.i
 function onData(result){
   const {wk,at,allFinal}=parseMatchups(S,result&&result.payload);
   if(!wk){banner('<b>Live data came back incomplete.</b> Showing the last good numbers.');return}
-  banner(allFinal?'<b>All Week 10 games are final.</b> These are the end-of-week odds, before any stat corrections.':null);
+  banner(allFinal?'<b>All Week __WK__ games are final.</b> These are the end-of-week odds, before any stat corrections.':null);
   const key=JSON.stringify(wk);stampAt(at||(result.cache&&result.cache.storedAt));
   if(key===lastWk)return;lastWk=key;compute(wk);
 }

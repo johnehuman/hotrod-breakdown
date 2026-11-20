@@ -1,5 +1,5 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta property="og:title" content="Hot Rod Week 10 Odds Tracker">
-<title>Hot Rod Week 10 Odds Tracker</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta property="og:title" content="Hot Rod Week 11 Odds Tracker">
+<title>Hot Rod Week 11 Odds Tracker</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Playfair+Display:wght@900&family=Source+Sans+3:wght@400;600;700&display=swap">
 <style>
 :root{--bg:#f4f3ef;--card:#fff;--ink:#1d1d1f;--muted:#5f6168;--line:#e2e0da;--accent:#c8102e;--win:#13753f;--lose:#b3202a;--stake:#f7e7a6;--stakeline:#e5cf73;--bar:#ecebe6;
@@ -67,14 +67,14 @@ tr.cut td{border-bottom:2px solid var(--accent)}
 </head><body>
 <header class="mast"><div class="gut">
   <div class="kicker"><b>Hot Rod</b> · <a href="/" style="color:inherit">The Breakdown</a> · Odds tracker</div>
-  <h1>Week 10 Odds Tracker</h1>
+  <h1>Week 11 Odds Tracker</h1>
   <div class="status"><span class="live" id="stamp">Connecting…</span><button id="refresh" hidden>Refresh now</button></div>
 </div></header>
 <div class="scen" id="scen" hidden><span id="scentext"></span><button id="reset">Back to live</button></div>
 <main class="gut">
   <div class="banner" id="banner" hidden></div>
   <h2>Biggest Movers</h2>
-  <p class="hint">Change since Thursday's Week 9 issue.</p>
+  <p class="hint">Change since Thursday's Week 10 issue.</p>
   <div class="movers" id="movers"></div>
   <h2>Playoff Odds</h2>
   <p class="hint">Records show where each team lands if every projected winner wins. Top 6 make it; the red line is the cut.</p>
@@ -83,9 +83,9 @@ tr.cut td{border-bottom:2px solid var(--accent)}
   <p class="hint">Seeds 1–2 get a first-round bye.</p>
   <section class="card"><table><thead><tr><th>Manager</th><th>Pre-game</th><th class="nowh">Now</th><th>Move</th></tr></thead><tbody id="byes"></tbody></table></section>
   <h2>What If</h2>
-  <p class="hint">Lock in Week 10 winners to see how the odds above would change. Tap <b>Live</b> to undo.</p>
+  <p class="hint">Lock in Week 11 winners to see how the odds above would change. Tap <b>Live</b> to undo.</p>
   <div class="games" id="games"></div>
-  <p class="method">How this works: the same model as the Week 9 issue. Each team's Week 10 score is its live score plus what ESPN projects for the rest of its lineup, with less uncertainty as fewer points remain. Weeks 11–14 are simulated as before (60,000 seasons per update). Seeding: record, then points for. </p>
+  <p class="method">How this works: the same model as the Week 10 issue. Each team's Week 11 score is its live score plus what ESPN projects for the rest of its lineup, with less uncertainty as fewer points remain. Weeks 11–14 are simulated as before (60,000 seasons per update). Seeding: record, then points for. </p>
 </main>
 <script>
 /* ---- odds engine: pure, testable ---- */
@@ -132,8 +132,8 @@ function parseMatchups(S,payload){
 }
 
 
-const S={"keys": ["VBB", "SM", "TH", "DD", "UD", "BF", "PH", "DZ", "BRY", "TR", "SHOE", "DYC"], "mu": [108.179, 107.035, 108.202, 105.1, 110.503, 107.534, 105.135, 104.822, 100.97, 104.176, 104.115, 101.832], "sd": 22.2, "tsd": 3.385, "W": [8, 6, 6, 7, 6, 5, 5, 3, 4, 2, 2, 0], "PF": [1060.16, 1010.96, 1061.14, 927.78, 1160.08, 1032.42, 929.26, 915.8, 750.18, 888.02, 885.4, 787.22], "sched": [[[5, 7], [10, 9], [1, 11], [8, 2], [3, 4], [6, 0]], [[3, 1], [2, 7], [8, 9], [6, 11], [5, 4], [10, 0]], [[6, 3], [5, 1], [9, 2], [8, 10], [11, 4], [7, 0]], [[5, 3], [10, 9], [8, 2], [1, 6], [7, 4], [11, 0]], [[3, 1], [11, 7], [8, 9], [10, 2], [5, 6], [4, 0]]], "byName": {"Van Buren Boys": 0, "Shooter Mcgavin": 1, "Team Human": 2, "Double Ds": 3, "Uncle D": 4, "B-Frizz": 5, "Phins 1-16": 6, "4th and Dawz": 7, "brybrybaggins": 8, "Tractorcito": 9, "For The Shoe": 10, "Disrespect Ya Chick": 11}, "names": ["Ed", "Josh", "John", "Hannah", "Derrick", "Brett", "Wayne", "Dawson", "Bryan", "Lewis", "Kyle", "Castano"], "prePO": [99.9, 88.0, 93.8, 92.1, 95.7, 68.3, 49.0, 4.3, 8.1, 0.5, 0.4, 0.0], "preBY": [81.1, 18.4, 25.6, 30.3, 36.4, 5.8, 2.3, 0.0, 0.0, 0.0, 0.0, 0.0]};const SERVER="League Loom",TOOL="fantasy_get_matchups";
-const INPUT={league_query:"Hot Rod",season:2026,week:10,live:true,response_format:"json",sport:"NFL"};
+const S={"keys": ["VBB", "SM", "TH", "DD", "UD", "BF", "PH", "DZ", "BRY", "TR", "SHOE", "DYC"], "mu": [109.457, 107.688, 107.768, 106.043, 111.199, 107.202, 105.119, 105.128, 100.79, 104.091, 104.251, 102.514], "sd": 22.2, "tsd": 3.347, "W": [9, 7, 6, 8, 6, 5, 5, 4, 5, 2, 3, 0], "PF": [1214.24, 1136.38, 1139.9, 1064.02, 1290.9, 1115.02, 1023.38, 1023.74, 832.9, 978.14, 985.16, 908.72], "sched": [[[3, 1], [2, 7], [8, 9], [6, 11], [5, 4], [10, 0]], [[6, 3], [5, 1], [9, 2], [8, 10], [11, 4], [7, 0]], [[5, 3], [10, 9], [8, 2], [1, 6], [7, 4], [11, 0]], [[3, 1], [11, 7], [8, 9], [10, 2], [5, 6], [4, 0]]], "byName": {"Van Buren Boys": 0, "Shooter Mcgavin": 1, "Team Human": 2, "Double Ds": 3, "Uncle D": 4, "B-Frizz": 5, "Phins 1-16": 6, "4th and Dawz": 7, "brybrybaggins": 8, "Tractorcito": 9, "For The Shoe": 10, "Disrespect Ya Chick": 11}, "names": ["Ed", "Josh", "John", "Hannah", "Derrick", "Brett", "Wayne", "Dawson", "Bryan", "Lewis", "Kyle", "Castano"], "prePO": [100.0, 96.8, 88.9, 99.3, 93.2, 54.3, 36.6, 9.0, 20.7, 0.0, 1.1, 0.0], "preBY": [94.7, 31.8, 7.2, 51.7, 13.1, 1.2, 0.3, 0.0, 0.0, 0.0, 0.0, 0.0], "week": 11};const SERVER="League Loom",TOOL="fantasy_get_matchups";
+const INPUT={league_query:"Hot Rod",season:2026,week:11,live:true,response_format:"json",sport:"NFL"};
 const $=id=>document.getElementById(id),N=60000,n=S.keys.length;
 const pct=x=>x>=99.95?'>99.9%':x>0&&x<0.05?'<0.1%':x.toFixed(1)+'%';
 const p0=x=>x>=99.5?'>99%':x>0&&x<0.5?'<1%':Math.round(x)+'%';
@@ -151,14 +151,14 @@ function render(R,wk){
   const picks=R.games.map((g,j)=>forced[j]?`${nm[forced[j]==='a'?g.a:g.h]} over ${nm[forced[j]==='a'?g.h:g.a]}`:null).filter(Boolean);
   $('scen').hidden=!picks.length;$('scentext').innerHTML='<b>Scenario:</b> '+picks.join(' · ');
   // records if leaders hold
-  const W=S.W.slice(),L=S.W.map(w=>9-w);
+  const W=S.W.slice(),L=S.W.map(w=>S.week-1-w);
   R.games.forEach((g,j)=>{const aw=forced[j]?forced[j]==='a':g.pa>=50;W[aw?g.a:g.h]++;L[aw?g.h:g.a]++});
   // movers
   const mv=S.keys.map((k,i)=>{const dp=R.po[i]-S.prePO[i],db=R.by[i]-S.preBY[i];return Math.abs(db)>Math.abs(dp)?{i,what:'Bye',from:S.preBY[i],to:R.by[i],d:db}:{i,what:'Playoff',from:S.prePO[i],to:R.po[i],d:dp}})
     .sort((a,b)=>Math.abs(b.d)-Math.abs(a.d)).slice(0,4);
   $('movers').innerHTML=mv.map(m=>`<div class="mv"><em>${m.what} odds</em><b>${nm[m.i]}</b><div class="big ${m.d>=0.05?'up':m.d<=-0.05?'dn':'flat'}">${m.d>=0?'+':'−'}${Math.abs(m.d).toFixed(1)}</div><p>${pct(m.from)} → ${pct(m.to)}</p></div>`).join('');
   const table=(id,pre,now,cut)=>{const ord=[...Array(n).keys()].sort((a,b)=>now[b]-now[a]||R.po[b]-R.po[a]||pre[b]-pre[a]);
-    $(id).innerHTML=ord.map((i,r)=>`<tr class="${r===cut-1?'cut':''}"><td><span class="nm">${nm[i]}</span><small>${S.W[i]}-${9-S.W[i]} → ${W[i]}-${L[i]}</small></td><td class="was">${pct(pre[i])}</td><td class="is">${pct(now[i])}</td><td class="mvn">${mvc(now[i]-pre[i])}</td></tr>`).join('')};
+    $(id).innerHTML=ord.map((i,r)=>`<tr class="${r===cut-1?'cut':''}"><td><span class="nm">${nm[i]}</span><small>${S.W[i]}-${S.week-1-S.W[i]} → ${W[i]}-${L[i]}</small></td><td class="was">${pct(pre[i])}</td><td class="is">${pct(now[i])}</td><td class="mvn">${mvc(now[i]-pre[i])}</td></tr>`).join('')};
   table('odds',S.prePO,R.po,6);table('byes',S.preBY,R.by,2);
 }
 function stake(i,w,l){if(w[0]==null||l[0]==null)return `<b>${S.names[i]}</b>: decided`;
@@ -175,13 +175,13 @@ function banner(html,btn){const b=$('banner');if(!html){b.hidden=true;return}b.i
 function onData(result){
   const {wk,at,allFinal}=parseMatchups(S,result&&result.payload);
   if(!wk){banner('<b>Live data came back incomplete.</b> Showing the last good numbers.');return}
-  banner(allFinal?'<b>All Week 10 games are final.</b> These are the end-of-week odds, before any stat corrections.':null);
+  banner(allFinal?'<b>All Week 11 games are final.</b> These are the end-of-week odds, before any stat corrections.':null);
   const key=JSON.stringify(wk);stampAt(at||(result.cache&&result.cache.storedAt));
   if(key===lastWk)return;lastWk=key;compute(wk);
 }
 $('games').addEventListener('click',e=>{const b=e.target.closest('button[data-g]');if(!b)return;forced[+b.dataset.g]=b.dataset.v||null;compute(curWk)});
 $('reset').onclick=()=>{forced.fill(null);compute(curWk)};
-const SNAP={"matchups": [{"scoring": {"fetchedAt": "2026-11-16T00:40:53.558Z"}, "final": false, "away": {"teamName": "brybrybaggins", "livePoints": 74.32, "projectedPoints": 86.33}, "home": {"teamName": "Team Human", "livePoints": 76.66, "projectedPoints": 95.32}}, {"scoring": {"fetchedAt": "2026-11-16T00:40:53.558Z"}, "final": false, "away": {"teamName": "For The Shoe", "livePoints": 46.7, "projectedPoints": 80.03}, "home": {"teamName": "Tractorcito", "livePoints": 88.42, "projectedPoints": 88.63}}, {"scoring": {"fetchedAt": "2026-11-16T00:40:53.558Z"}, "final": false, "away": {"teamName": "Shooter Mcgavin", "livePoints": 109.8, "projectedPoints": 124.61}, "home": {"teamName": "Disrespect Ya Chick", "livePoints": 104, "projectedPoints": 128.98}}, {"scoring": {"fetchedAt": "2026-11-16T00:40:53.558Z"}, "final": false, "away": {"teamName": "Phins 1-16", "livePoints": 92.84, "projectedPoints": 101.6}, "home": {"teamName": "Van Buren Boys", "livePoints": 149.68, "projectedPoints": 158.37}}, {"scoring": {"fetchedAt": "2026-11-16T00:40:53.558Z"}, "final": false, "away": {"teamName": "B-Frizz", "livePoints": 58.3, "projectedPoints": 69.46}, "home": {"teamName": "4th and Dawz", "livePoints": 107.74, "projectedPoints": 108.02}}, {"scoring": {"fetchedAt": "2026-11-16T00:40:53.558Z"}, "final": false, "away": {"teamName": "Double Ds", "livePoints": 129.64, "projectedPoints": 144.15}, "home": {"teamName": "Uncle D ", "livePoints": 101.72, "projectedPoints": 120.55}}]};
+const SNAP={"matchups": [{"scoring": {"fetchedAt": "2026-11-20T16:47:38.301Z"}, "final": false, "away": {"teamName": "Team Human", "livePoints": 13.3, "projectedPoints": 106.05}, "home": {"teamName": "4th and Dawz", "livePoints": 2.7, "projectedPoints": 90.11}}, {"scoring": {"fetchedAt": "2026-11-20T16:47:38.301Z"}, "final": false, "away": {"teamName": "For The Shoe", "livePoints": 4.7, "projectedPoints": 86.04}, "home": {"teamName": "Van Buren Boys", "livePoints": 0, "projectedPoints": 111.63}}, {"scoring": {"fetchedAt": "2026-11-20T16:47:38.301Z"}, "final": false, "away": {"teamName": "B-Frizz", "livePoints": 0, "projectedPoints": 83.74}, "home": {"teamName": "Uncle D ", "livePoints": 0, "projectedPoints": 117.9}}, {"scoring": {"fetchedAt": "2026-11-20T16:47:38.301Z"}, "final": false, "away": {"teamName": "brybrybaggins", "livePoints": 0, "projectedPoints": 99.78}, "home": {"teamName": "Tractorcito", "livePoints": 15, "projectedPoints": 112.85}}, {"scoring": {"fetchedAt": "2026-11-20T16:47:38.301Z"}, "final": false, "away": {"teamName": "Phins 1-16", "livePoints": 2.3, "projectedPoints": 96.22}, "home": {"teamName": "Disrespect Ya Chick", "livePoints": 0, "projectedPoints": 109.41}}, {"scoring": {"fetchedAt": "2026-11-20T16:47:38.301Z"}, "final": false, "away": {"teamName": "Double Ds", "livePoints": 34.86, "projectedPoints": 125.13}, "home": {"teamName": "Shooter Mcgavin", "livePoints": 0, "projectedPoints": 98.74}}]};
 if(SNAP){const {wk,at}=parseMatchups(S,SNAP);compute(wk);const t=new Date(at),o={timeZone:'America/New_York'};$('stamp').textContent=`Snapshot · ${t.toLocaleTimeString('en-US',{...o,hour:'numeric',minute:'2-digit'})} ET ${t.toLocaleDateString('en-US',{...o,weekday:'short'})}`;$('stamp').className='live';
   document.querySelector('.method').insertAdjacentText('beforeend',' This shared copy is a snapshot; it updates when John posts a new one.')}
 else{compute(null);stampAt(null)}
